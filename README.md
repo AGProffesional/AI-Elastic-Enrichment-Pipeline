@@ -10,7 +10,8 @@ Elastic Stack (running on a dedicated VM) - This serves as the alert source for 
 Poller.py - This file periodically queries Elastic for new alerts, normalizes the data, and forwards alerts to the webhook for enrichment.  
 Webhook.py - This file receives the alerts from poller and forwards them to the local DeepSeek Qwen model for analysis, filters the hallucinatinos, and returns the structured enriched output block.  
 Deepseek Qwen (Ran Locally using LMStudio) - Generates contextual summaries, risk insights, and enrichment data for each alert based on the prompt provided by the webhook.  
-<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/2389d272-6dc5-449e-a644-bf18efe810b1" />
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/f5c240b2-28d6-47f3-bff1-ff13c973be1f" />
+
 ## Development Process
 The project began with an evaluation of how SIEM alerts are structured within Elastic's ECS format. After deploying Elastic on a dedicated VM, I analyzed the alert shecma to figure out which fields were the most relevant to be enriched. After understanding the schema, I implemented a Python poller that periodically queries Elastic's alert index and normalizes incoming events.
 
